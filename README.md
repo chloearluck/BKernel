@@ -1,6 +1,6 @@
 BKernel
 =======
-This is [Aldebaran's 1.14 Kernel](https://github.com/aldebaran/linux-aldebaran/tree/release-1.14/atom) with our new camera driver and another drivers for WiFi and ethernet. Additionally SMT was activated.
+This is [Aldebaran's 1.14 Kernel](https://github.com/aldebaran/linux-aldebaran/tree/release-1.14/atom) with our new camera driver and drivers for WiFi and ethernet. Additionally SMT was activated. Appart from the camera driver this kernel is equal to the kernel from our repository [KernelV4](https://github.com/bhuman/KernelV4).
 
 
 Information about the camera driver
