@@ -1076,7 +1076,6 @@ static int mt9m114_s_target_average_luma(struct v4l2_subdev* sd, s32 val) {
   iprint("Setting target average brightness to %d", val);
   ret = mt9m114_write8(client, VAR_CAM_AET_TARGET_AVERAGE_LUMA, val);
   if(!ret) ret = mt9m114_wait_for_vertical_blanking(client);
-  if(!ret) ret = mt9m114_refresh(client);
   return ret;
 }
 
@@ -1087,7 +1086,6 @@ static int mt9m114_s_target_average_luma_dark(struct v4l2_subdev* sd, s32 val) {
   iprint("Setting target average brightness dark to %d", val);
   ret = mt9m114_write8(client, VAR_CAM_AET_TARGET_AVERAGE_LUMA_DARK, val);
   if(!ret) ret = mt9m114_wait_for_vertical_blanking(client);
-  if(!ret) ret = mt9m114_refresh(client);
   return ret;
 }
 
@@ -1098,7 +1096,6 @@ static int mt9m114_s_target_gain(struct v4l2_subdev* sd, s32 val) {
   iprint("Setting target gain to %d", val);
   ret = mt9m114_write16(client, VAR_CAM_AET_TARGET_GAIN, val);
   if(!ret) ret = mt9m114_wait_for_vertical_blanking(client);
-  if(!ret) ret = mt9m114_refresh(client);
   return ret;
 }
 
@@ -1109,7 +1106,6 @@ static int mt9m114_s_min_virt_gain(struct v4l2_subdev* sd, s32 val) {
   iprint("Setting minimum virtual gain to %d", val);
   ret = mt9m114_write16(client, VAR_CAM_AET_AE_MIN_VIRT_AGAIN, val);
   if(!ret) ret = mt9m114_wait_for_vertical_blanking(client);
-  if(!ret) ret = mt9m114_refresh(client);
   return ret;
 }
 
@@ -1120,7 +1116,6 @@ static int mt9m114_s_max_virt_gain(struct v4l2_subdev* sd, s32 val) {
   iprint("Setting maximum virtual gain to %d", val);
   ret = mt9m114_write16(client, VAR_CAM_AET_AE_MAX_VIRT_AGAIN, val);
   if(!ret) ret = mt9m114_wait_for_vertical_blanking(client);
-  if(!ret) ret = mt9m114_refresh(client);
   return ret;
 }
 
@@ -1133,7 +1128,6 @@ static int mt9m114_s_weight_table(struct v4l2_subdev* sd, s32 val, char pos) {
   iprint("Setting weight table at %d to %d", pos, val);
   ret = mt9m114_write8(client, VAR_AE_RULE_AE_WEIGHT_TABLE_0_0+pos, val);
   if(!ret) ret = mt9m114_wait_for_vertical_blanking(client);
-  if(!ret) ret = mt9m114_refresh(client);
   return ret;
 }
 
