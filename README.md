@@ -8,8 +8,6 @@ Information about the camera driver
 -----------------------------------
 The camera driver provides some new features compared to the driver from Aldebaran. In addition to that the range of some values changed and the auto white balance is controlled by another ioctl.
 
-The registers for the advanced auto exposure settings were adopted from [another camera manual](http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF). Check out figures 32, 38, 40 and the related sections for more information.
-
 After building the kernel the new driver can be found in `drivers/media/video/mt9m114.ko` and has to be copied to `/lib/modules/2.6.33.9-rt31-aldebaran-rt/kernel/drivers/media/video/mt9m114.ko` on the robot.
 
 A list of the new video controls:
@@ -90,7 +88,7 @@ A list of all supported mage settings:
         <td>exposure algorithm</td>
         <td>V4L2_CID_EXPOSURE_ALGORITHM</td>
         <td>min: 0 max: 3<br/>default: 1</td>
-        <td>0: Average scene brightness<br/>1: weighted average scene brightness<br/>2: evaluated average scene brightness with frontlight detection<br/>3: evaluated average scene brightness with backlight detection</td>
+        <td>0: Average scene brightness<br/>1: weighted average scene brightness<br/>2: evaluated average scene brightness with frontlight detection<br/>3: evaluated average scene brightness with backlight detection (<a href="http://www.image-sensor.in/cmos%20image%20sensor/MT9M114%201%20MP%20CMOS%20IMAGE%20SENSOR.PDF">Page 38</a>)</td>
     </tr>
     <tr>
         <td>gain</td>
@@ -161,7 +159,7 @@ A list of all supported mage settings:
     <tr>
         <td>target average luma dark</td>
         <td>V4L2_MT9M114_AE_TARGET_AVERAGE_LUMA_DARK (V4L2_CID_PRIVATE_BASE+2)</td>
-        <td>min: 0 max: 255<br/>default: 27</td>
+        <td>min: 0 max: 255<br/>default: 45</td>
         <td>The brightness target to be maintained by the auto exposure for dark lighting conditions. (<a href="http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF">Figure 38</a>)</td>
     </tr>
     <tr>
@@ -186,7 +184,7 @@ A list of all supported mage settings:
         <td>weighted brightness</td>
         <td>V4L2_MT9M114_AE_WEIGHT_TABLE_0_0 ... V4L2_MT9M114_AE_WEIGHT_TABLE_4_4 (V4L2_CID_PRIVATE_BASE+6...+30)</td>
         <td>min: 0 max: 255</td>
-        <td>Requires V4L2_CID_EXPOSURE_ALGORITHM=1!<br>The weight of every 5x5 area to be used for calculating the average brightness of the current scene. (<a href="http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF">Figure 32</a>)</td>
+        <td>Requires V4L2_CID_EXPOSURE_ALGORITHM=1!<br>The weight of every 5x5 area to be used for calculating the average brightness of the current scene. (<a href="http://www.image-sensor.in/cmos%20image%20sensor/MT9M114%201%20MP%20CMOS%20IMAGE%20SENSOR.PDF">Figure 26</a>)</td>
     </tr>
 </table>
 
