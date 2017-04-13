@@ -40,38 +40,37 @@ static bool debug = 0;
 
 //Custom V4L control variables
 #define V4L2_MT9M114_FADE_TO_BLACK (V4L2_CID_PRIVATE_BASE) //boolean, enable or disable fade to black feature
-#define V4L2_MT9M114_AE_TARGET_AVERAGE_LUMA (V4L2_CID_PRIVATE_BASE+1)
-#define V4L2_MT9M114_AE_TARGET_AVERAGE_LUMA_DARK (V4L2_CID_PRIVATE_BASE+2)
-#define V4L2_MT9M114_AE_TARGET_GAIN (V4L2_CID_PRIVATE_BASE+3)
-#define V4L2_MT9M114_AE_MIN_VIRT_GAIN (V4L2_CID_PRIVATE_BASE+4)
-#define V4L2_MT9M114_AE_MAX_VIRT_GAIN (V4L2_CID_PRIVATE_BASE+5)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_0 (V4L2_CID_PRIVATE_BASE+6)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_1 (V4L2_CID_PRIVATE_BASE+7)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_2 (V4L2_CID_PRIVATE_BASE+8)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_3 (V4L2_CID_PRIVATE_BASE+9)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_4 (V4L2_CID_PRIVATE_BASE+10)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_0 (V4L2_CID_PRIVATE_BASE+11)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_1 (V4L2_CID_PRIVATE_BASE+12)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_2 (V4L2_CID_PRIVATE_BASE+13)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_3 (V4L2_CID_PRIVATE_BASE+14)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_4 (V4L2_CID_PRIVATE_BASE+15)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_0 (V4L2_CID_PRIVATE_BASE+16)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_1 (V4L2_CID_PRIVATE_BASE+17)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_2 (V4L2_CID_PRIVATE_BASE+18)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_3 (V4L2_CID_PRIVATE_BASE+19)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_4 (V4L2_CID_PRIVATE_BASE+20)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_0 (V4L2_CID_PRIVATE_BASE+21)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_1 (V4L2_CID_PRIVATE_BASE+22)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_2 (V4L2_CID_PRIVATE_BASE+23)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_3 (V4L2_CID_PRIVATE_BASE+24)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_4 (V4L2_CID_PRIVATE_BASE+25)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_0 (V4L2_CID_PRIVATE_BASE+26)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_1 (V4L2_CID_PRIVATE_BASE+27)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_2 (V4L2_CID_PRIVATE_BASE+28)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_3 (V4L2_CID_PRIVATE_BASE+29)
-#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_4 (V4L2_CID_PRIVATE_BASE+30)
-
-
+#define V4L2_MT9M114_BRIGHTNESS_DARK (V4L2_CID_PRIVATE_BASE+1)
+#define V4L2_MT9M114_AE_TARGET_GAIN (V4L2_CID_PRIVATE_BASE+2)
+#define V4L2_MT9M114_AE_MIN_VIRT_AGAIN (V4L2_CID_PRIVATE_BASE+3)
+#define V4L2_MT9M114_AE_MAX_VIRT_AGAIN (V4L2_CID_PRIVATE_BASE+4)
+#define V4L2_MT9M114_AE_MIN_VIRT_DGAIN (V4L2_CID_PRIVATE_BASE+5)
+#define V4L2_MT9M114_AE_MAX_VIRT_DGAIN (V4L2_CID_PRIVATE_BASE+6)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_0 (V4L2_CID_PRIVATE_BASE+7)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_1 (V4L2_CID_PRIVATE_BASE+8)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_2 (V4L2_CID_PRIVATE_BASE+9)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_3 (V4L2_CID_PRIVATE_BASE+10)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_0_4 (V4L2_CID_PRIVATE_BASE+11)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_0 (V4L2_CID_PRIVATE_BASE+12)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_1 (V4L2_CID_PRIVATE_BASE+13)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_2 (V4L2_CID_PRIVATE_BASE+14)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_3 (V4L2_CID_PRIVATE_BASE+15)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_1_4 (V4L2_CID_PRIVATE_BASE+16)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_0 (V4L2_CID_PRIVATE_BASE+17)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_1 (V4L2_CID_PRIVATE_BASE+18)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_2 (V4L2_CID_PRIVATE_BASE+19)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_3 (V4L2_CID_PRIVATE_BASE+20)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_2_4 (V4L2_CID_PRIVATE_BASE+21)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_0 (V4L2_CID_PRIVATE_BASE+22)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_1 (V4L2_CID_PRIVATE_BASE+23)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_2 (V4L2_CID_PRIVATE_BASE+24)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_3 (V4L2_CID_PRIVATE_BASE+25)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_3_4 (V4L2_CID_PRIVATE_BASE+26)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_0 (V4L2_CID_PRIVATE_BASE+27)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_1 (V4L2_CID_PRIVATE_BASE+28)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_2 (V4L2_CID_PRIVATE_BASE+29)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_3 (V4L2_CID_PRIVATE_BASE+30)
+#define V4L2_MT9M114_AE_WEIGHT_TABLE_4_4 (V4L2_CID_PRIVATE_BASE+31)
 
 // Host commands
 typedef enum {
@@ -236,13 +235,21 @@ static int mt9m114_set_streaming(struct i2c_client* client);
 static int mt9m114_set_suspend(struct i2c_client* client);
 
 static int mt9m114_g_auto_exposure(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_algorithm(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_brightness(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_brightness_dark(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_target_gain(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_min_virt_again(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_max_virt_again(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_min_virt_dgain(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_max_virt_dgain(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_auto_exposure_weight_table(struct v4l2_subdev* sd, s32* val, char pos);
 static int mt9m114_g_auto_white_balance(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_backlight_compensation(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_brightness(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_contrast(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_do_white_balance(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_exposure(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_exposure_algorithm(struct v4l2_subdev* sd, s32* val);
+static int mt9m114_g_fade_to_black(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_gain(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_gamma(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_hue(struct v4l2_subdev* sd, s32* val);
@@ -252,22 +259,23 @@ static int mt9m114_g_sharpness(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_white_balance_temperature(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_vertical_flip(struct v4l2_subdev* sd, s32* val);
 static int mt9m114_g_horizontal_flip(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_fade_to_black(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_target_average_luma(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_target_average_luma_dark(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_target_gain(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_min_virt_gain(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_max_virt_gain(struct v4l2_subdev* sd, s32* val);
-static int mt9m114_g_weight_table(struct v4l2_subdev* sd, s32* val, char pos);
 
 static int mt9m114_s_auto_exposure(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_algorithm(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_brightness(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_brightness_dark(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_target_gain(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_min_virt_again(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_max_virt_again(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_min_virt_dgain(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_max_virt_dgain(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_auto_exposure_weight_table(struct v4l2_subdev* sd, s32 val, char pos);
 static int mt9m114_s_auto_white_balance(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_backlight_compensation(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_brightness(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_contrast(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_do_white_balance(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_exposure(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_exposure_algorithm(struct v4l2_subdev* sd, s32 val);
+static int mt9m114_s_fade_to_black(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_gain(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_gamma(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_hue(struct v4l2_subdev* sd, s32 val);
@@ -277,13 +285,6 @@ static int mt9m114_s_sharpness(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_white_balance_temperature(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_vertical_flip(struct v4l2_subdev* sd, s32 val);
 static int mt9m114_s_horizontal_flip(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_fade_to_black(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_target_average_luma(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_target_average_luma_dark(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_target_gain(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_min_virt_gain(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_max_virt_gain(struct v4l2_subdev* sd, s32 val);
-static int mt9m114_s_weight_table(struct v4l2_subdev* sd, s32 val, char pos);
 
 static const struct mt9m114_fmt* mt9m114_find_best_fmt(u32 pixelformat);
 static const struct mt9m114_framesize* mt9m114_find_best_framesize(u32 width, u32 height);
