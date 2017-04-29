@@ -64,7 +64,7 @@ A list of all supported mage settings:
         <td>brightness</td>
         <td>V4L2_CID_BRIGHTNESS</td>
         <td>min: 0 max: 255<br/>default: 55</td>
-        <td>Only changeable while ae is enabled!</td>
+        <td>Target average brightness for the auto exposure algorithms.</td>
     </tr>
     <tr>
         <td>contrast</td>
@@ -151,38 +151,44 @@ A list of all supported mage settings:
         <td>0: disable, 1: enable<br/>When enabled the image will fade to black under low light conditions.</td>
     </tr>
     <tr>
-        <td>target average luma</td>
-        <td>V4L2_MT9M114_AE_TARGET_AVERAGE_LUMA (V4L2_CID_PRIVATE_BASE+1)</td>
-        <td>min: 0 max: 255<br/>default: 55</td>
-        <td>The brightness target to be maintained by the auto exposure for bright lighting conditions. (<a href="http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF">Figure 38</a>)</td>
-    </tr>
-    <tr>
-        <td>target average luma dark</td>
-        <td>V4L2_MT9M114_AE_TARGET_AVERAGE_LUMA_DARK (V4L2_CID_PRIVATE_BASE+2)</td>
-        <td>min: 0 max: 255<br/>default: 45</td>
-        <td>The brightness target to be maintained by the auto exposure for dark lighting conditions. (<a href="http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF">Figure 38</a>)</td>
+        <td>brightness dark</td>
+        <td>V4L2_MT9M114_BRIGHTNESS_DARK (V4L2_CID_PRIVATE_BASE+1)</td>
+        <td>min: 0 max: 255<br/>default: 27</td>
+        <td>Target average brightness for the auto exposure algorithms for dark conditions  (<a href="http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF">Figure 38</a>).</td>
     </tr>
     <tr>
         <td>target analog gain</td>
-        <td>V4L2_MT9M114_AE_TARGET_GAIN (V4L2_CID_PRIVATE_BASE+3)</td>
+        <td>V4L2_MT9M114_AE_TARGET_GAIN (V4L2_CID_PRIVATE_BASE+2)</td>
         <td>min: 0 max: 65535<br/>default: 128</td>
         <td>The maximum analog gain before reducing the frame rate. (<a href="http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF">Figure 40</a>)</td>
     </tr>
     <tr>
         <td>min. analog gain</td>
-        <td>V4L2_MT9M114_AE_MIN_VIRT_GAIN (V4L2_CID_PRIVATE_BASE+4)</td>
+        <td>V4L2_MT9M114_AE_MIN_VIRT_AGAIN (V4L2_CID_PRIVATE_BASE+3)</td>
         <td>min: 0 max: 65535<br/>default: 32</td>
         <td>The minimum analog gain that the auto exposure is allowed to use. Increasing this value carefully results in shorter exposure times. (<a href="http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF">Figure 40</a>)</td>
     </tr>
     <tr>
         <td>max. analog gain</td>
-        <td>V4L2_MT9M114_AE_MAX_VIRT_GAIN (V4L2_CID_PRIVATE_BASE+5)</td>
+        <td>V4L2_MT9M114_AE_MAX_VIRT_AGAIN (V4L2_CID_PRIVATE_BASE+4)</td>
         <td>min: 0 max: 65535<br/>default: 256</td>
-        <td>The maximum analog gain that the auto exposure is allowed to use. (<a href="http://www.onsemi.com/pub_link/Collateral/AND9270-D.PDF">Figure 40</a>)</td>
+        <td>The maximum analog gain that the auto exposure is allowed to use.</td>
+    </tr>
+    <tr>
+        <td>min. digital gain</td>
+        <td>V4L2_MT9M114_AE_MIN_VIRT_DGAIN (V4L2_CID_PRIVATE_BASE+5)</td>
+        <td>min: 0 max: 65535<br/>default: 128</td>
+        <td>The minimum digital gain that the auto exposure is allowed to use.</td>
+    </tr>
+    <tr>
+        <td>max. digital gain</td>
+        <td>V4L2_MT9M114_AE_MAX_VIRT_DGAIN (V4L2_CID_PRIVATE_BASE+6)</td>
+        <td>min: 0 max: 65535<br/>default: 132</td>
+        <td>The maximum digital gain that the auto exposure is allowed to use.</td>
     </tr>
     <tr>
         <td>weighted brightness</td>
-        <td>V4L2_MT9M114_AE_WEIGHT_TABLE_0_0 ... V4L2_MT9M114_AE_WEIGHT_TABLE_4_4 (V4L2_CID_PRIVATE_BASE+6...+30)</td>
+        <td>V4L2_MT9M114_AE_WEIGHT_TABLE_0_0 ... V4L2_MT9M114_AE_WEIGHT_TABLE_4_4 (V4L2_CID_PRIVATE_BASE+7...+31)</td>
         <td>min: 0 max: 255</td>
         <td>Requires V4L2_CID_EXPOSURE_ALGORITHM=1!<br>The weight of every 5x5 area to be used for calculating the average brightness of the current scene. (<a href="http://www.image-sensor.in/cmos%20image%20sensor/MT9M114%201%20MP%20CMOS%20IMAGE%20SENSOR.PDF">Figure 26</a>)</td>
     </tr>
